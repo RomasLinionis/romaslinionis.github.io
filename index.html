@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Romas Linionis | Fotografas</title>
+  <link rel="icon" href="data:,">
   <style>
     :root {
       --bg: #0a0a0a;
@@ -103,6 +104,62 @@
       transform: scale(1.03);
       filter: grayscale(0%);
     }
+    .gallery figure { margin: 0; position: relative; overflow: hidden; }
+    .gallery figure img { display: block; }
+    .gallery figcaption {
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 0.6rem 0.2rem 0;
+      line-height: 1.4;
+    }
+    .credit {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .credit a, .video-links a { color: var(--accent); text-decoration: none; }
+    .credit a:hover, .video-links a:hover { text-decoration: underline; }
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      background: #111;
+    }
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-caption {
+      max-width: 900px;
+      margin: 1rem auto 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .video-links {
+      max-width: 900px;
+      margin: 2.5rem auto 0;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+    .video-links li { padding: 0.6rem 0; border-top: 1px solid #222; }
+    .video-links span { color: var(--muted); }
+    .lightbox-caption {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 0;
+      right: 0;
+      padding: 0 1.5rem;
+      text-align: center;
+      color: #ddd;
+      font-size: 0.95rem;
+    }
     footer {
       text-align: center;
       padding: 3rem;
@@ -113,6 +170,16 @@
     @media (max-width: 768px) {
       .about { grid-template-columns: 1fr; }
       nav a { margin-left: 1rem; }
+      .gallery img { height: 300px; }
+    }
+    @media (max-width: 480px) {
+      nav { padding: 0.8rem 1rem; flex-direction: column; gap: 0.3rem; }
+      nav a { margin: 0 0.6rem; font-size: 0.8rem; }
+      section { padding: 5rem 1.2rem; }
+      .gallery { grid-template-columns: 1fr; }
+      .gallery img { height: 260px; }
+      h2 { font-size: 2rem; }
+      .about img { height: 380px; }
     }
   </style>
 </head>
@@ -123,6 +190,7 @@
     <div>
       <a href="#apie">Apie</a>
       <a href="#darbai">Darbai</a>
+      <a href="#video">Video</a>
       <a href="#kontaktai">Kontaktai</a>
     </div>
   </nav>
@@ -136,7 +204,7 @@
     <img src="https://www.suvalkietis.lt/wp-content/uploads/2016/06/Romas-1.jpg" alt="Romas Linionis">
     <div>
       <h2>Apie fotografą</h2>
-      <p>Romas Linionis (g. 1950/1951 m. Marijampolėje) – vienas žymiausių Marijampolės fotografų ir miesto metraštininkas. Nuo 1974 m. vadovavo „Sūduvos“ fotoklubui ir intensyviai dokumentavo tuometinį Kapsuką (Marijampolę) 1974–1990 m. laikotarpiu.</p>
+      <p>Romas Linionis (g. 1951 m. rugpjūčio 23 d.) – vienas žymiausių Marijampolės fotografų ir miesto metraštininkas. Nuo 1974 m. vadovavo „Sūduvos“ fotoklubui ir intensyviai dokumentavo tuometinį Kapsuką (Marijampolę) 1974–1990 m. laikotarpiu.</p>
       <p style="margin-top:1.5rem;">Jo ciklai „Būtasis miestas“, „Miestas visada norėjo keistis“ ir „Mano miesto žmonės“ išsaugojo nykstantį senąjį miestą, kasdienybę, architektūros pokyčius ir žmones. Nuo 1979 m. – Lietuvos fotomenininkų sąjungos narys, AFIAP garbės vardo savininkas.</p>
       <p style="margin-top:1.5rem; color: var(--accent); font-style: italic;">
         „Fotografavau žinodamas, kad to objekto po pusdienio ar kelių dienų jau nebeliks.“
@@ -152,8 +220,37 @@
       <img src="https://www.suvalkietis.lt/wp-content/uploads/2026/08/romas-linionis.webp" alt="Romas Linionis parodoje">
       <img src="https://www.suvalkietis.lt/wp-content/uploads/2026/04/linionis.webp" alt="Parodos metu">
       <img src="https://www.suvalkietis.lt/wp-content/uploads/2021/09/romas-1.jpg" alt="Romas Linionis">
-      <img src="https://suduvosgidas.lt/wp-content/uploads/2026/04/r-699704acda2aa.jpg" alt="Parodos afiša">
+      <figure>
+        <img src="assets/img/kauno-g-pastatas-ant-kampo.jpg" width="1200" height="718" loading="lazy" decoding="async" alt="Dabartinė Kauno g. ir senasis pastatas „ant kampo“ (dabar – restobaras).">
+        <figcaption>Dabartinė Kauno g. ir senasis pastatas „ant kampo“ (dabar – restobaras).</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/poezijos-svente-1986.jpg" width="1200" height="574" loading="lazy" decoding="async" alt="Pirmoji poezijos šventė Marijampolėje (1986 m.), vykusi prie dabartinės Marijonų gimnazijos.">
+        <figcaption>Pirmoji poezijos šventė Marijampolėje (1986 m.), vykusi prie dabartinės Marijonų gimnazijos.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/kavine-pasaka-1983.jpg" width="1200" height="602" loading="lazy" decoding="async" alt="Apie 1983–1984 m. prie vaikų kavinės „Pasaka“ (dabar J. Basanavičiaus a.).">
+        <figcaption>Apie 1983–1984 m. prie vaikų kavinės „Pasaka“ (dabar J. Basanavičiaus a.).</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/jonines-kumelioniu-piliakalnis-1975.jpg" width="1200" height="499" loading="lazy" decoding="async" alt="Vasaros šventė (Joninės) prie Kumelionių piliakalnio (apie 1975 m.).">
+        <figcaption>Vasaros šventė (Joninės) prie Kumelionių piliakalnio (apie 1975 m.).</figcaption>
+      </figure>
     </div>
+    <p class="credit">Nuotraukos su aprašais: Romas Linionis / <a href="https://www.suvalkietis.lt/2026/08/27/uzfiksuotas-laikas-fotomenininko-romo-linionio-gyvenimo-kadrai/" target="_blank" rel="noopener">„Suvalkietis“, 2026-08-27</a></p>
+  </section>
+
+  <section id="video">
+    <h2>Video / Interviu</h2>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube-nocookie.com/embed/0r5xemTHF3E" title="Tinklalaidė „Tapatybės vizija“: Romas Linionis" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <p class="video-caption">Tinklalaidė „Tapatybės vizija“: pokalbis su fotografu Romu Linioniu apie Atgimimo laikotarpio archyvą (XFM radijas)</p>
+    <ul class="video-links">
+      <li><a href="https://www.marijampoles.tv/atraskime-suduva/romas-linionis-20230927/507" target="_blank" rel="noopener">„Atraskime Sūduvą“: Romas Linionis</a> <span>– Marijampolės TV, 2023-09-27</span></li>
+      <li><a href="https://www.youtube.com/watch?v=QiY0Ua7Uc8k" target="_blank" rel="noopener">Albumo „Praėjusio laiko dėlionės“ pristatymas</a> <span>– „Sūduvos“ fotoklubas, 2013</span></li>
+      <li><a href="https://www.youtube.com/watch?v=lAINHmMXTIo" target="_blank" rel="noopener">Fotografijų paroda „Marijampolės istorija“</a> <span>– Marijampolės kultūros centras, 2026</span></li>
+    </ul>
   </section>
 
   <section id="kontaktai" style="text-align:center;">
@@ -171,13 +268,25 @@
     document.querySelectorAll('.gallery img').forEach(img => {
       img.addEventListener('click', () => {
         const modal = document.createElement('div');
+        modal.className = 'lightbox';
         modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.96);display:flex;align-items:center;justify-content:center;z-index:1000;cursor:pointer;';
         const big = document.createElement('img');
-        big.src = img.src;
+        big.src = img.currentSrc || img.src;
+        big.alt = img.alt;
         big.style.maxWidth = '92%';
-        big.style.maxHeight = '92%';
+        big.style.maxHeight = '82%';
         modal.appendChild(big);
-        modal.onclick = () => modal.remove();
+        const fc = img.closest('figure') && img.closest('figure').querySelector('figcaption');
+        if (fc) {
+          const cap = document.createElement('div');
+          cap.className = 'lightbox-caption';
+          cap.textContent = fc.textContent;
+          modal.appendChild(cap);
+        }
+        const close = () => { modal.remove(); document.removeEventListener('keydown', onKey); };
+        const onKey = e => { if (e.key === 'Escape') close(); };
+        modal.onclick = close;
+        document.addEventListener('keydown', onKey);
         document.body.appendChild(modal);
       });
     });
